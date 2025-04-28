@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Acorn';
-    src: url('acorn.woff') format('woff'),
+    src: url('acorn.ttf') format('ttf'),
          url('acorn.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -9,7 +9,6 @@
 h1, .logo, .coming-soon, .feature h3, .link-group h4 {
     text-shadow: none !important;
 }
-
 
 :root {
     --primary: #7886C7;
@@ -141,7 +140,6 @@ main {
     position: relative;
 }
 
-/* Acorn highlight class for text */
 .acorn-highlight {
     font-family: 'Acorn', sans-serif;
     font-weight: 700;
@@ -152,7 +150,6 @@ main {
     display: inline-block;
 }
 
-/* Decorative elements */
 .glow-circle {
     position: absolute;
     border-radius: 50%;
@@ -197,7 +194,6 @@ main {
     filter: blur(120px);
 }
 
-/* Floating particles */
 .particles {
     position: fixed;
     top: 0;
@@ -207,6 +203,9 @@ main {
     overflow: hidden;
     z-index: 1;
     pointer-events: none;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .particle {
@@ -288,7 +287,6 @@ h1::after {
     margin-bottom: 2rem;
 }
 
-/* Coming Soon text */
 .coming-soon {
     font-family: 'Acorn', sans-serif;
     font-size: 1.8rem;
@@ -404,7 +402,6 @@ h1::after {
     box-shadow: 0 0 20px rgba(76, 139, 245, 0.5);
 }
 
-/* Features section */
 .features {
     display: flex;
     justify-content: center;
@@ -522,7 +519,6 @@ h1::after {
     line-height: 1.6;
 }
 
-/* Improved Footer with rounded corners and fire effect */
 footer {
     position: relative;
     z-index: 2;
@@ -535,7 +531,6 @@ footer {
     border-top-right-radius: 30px;
     overflow: hidden;
 }
-
 
 footer::before {
     content: '';
@@ -551,7 +546,6 @@ footer::before {
     animation: fire-animation 3s linear infinite;
     z-index: 3;
 }
-
 
 @keyframes fire-animation {
     0% { background-position: 0% 50%; }
@@ -693,103 +687,121 @@ footer::before {
     z-index: 2;
 }
 
-/* Mobile-specific adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding: 1.5rem;
-    }
-    
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    
-    .header-right {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    .social-links {
-        margin-right: 0;
-    }
-    
-    h1 {
-        margin-bottom: 1rem;
-    }
-    
-    .tagline {
-        margin-bottom: 2rem;
-    }
-    
-    .email-form {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.5rem;
-    }
-    
-    .email-input, .submit-btn {
-        border-radius: 8px;
-        width: 100%;
-        margin: 0;
-    }
-    
-    .submit-btn {
-        padding: 0.9rem;
-    }
-    
-    .features {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        margin-top: 1rem;
-    }
-    
-    .feature {
-        max-width: 100%;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 2rem;
-        padding-bottom: 2rem;
-    }
-    
-    .footer-logo {
-        max-width: 100%;
-    }
-    
-    .footer-links {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .link-group {
-        width: 100%;
-    }
-}
 
-/* Tablet adjustments */
+  
+    .glow-circle {
+      display: none !important;
+    }
+    .particles {
+      display: none !important;
+    }
+  
+
+    .email-form {
+      backdrop-filter: none !important;
+      background: rgba(12, 16, 34, 0.6) !important;
+    }
+   
+    *, h1, .logo, .submit-btn, .feature, .feature-icon {
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+  
+   
+    body {
+      background-attachment: scroll !important;
+    }
+  
+   
+    .container {
+      padding: 1.5rem;
+    }
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .header-right {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .social-links {
+      margin-right: 0;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    .tagline {
+      margin-bottom: 2rem;
+    }
+    .email-form {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.5rem;
+    }
+    .email-input,
+    .submit-btn {
+      border-radius: 8px;
+      width: 100%;
+      margin: 0;
+    }
+    .submit-btn {
+      padding: 0.9rem;
+    }
+    .features {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .feature {
+      max-width: 100%;
+    }
+    .footer-content {
+      flex-direction: column;
+      gap: 2rem;
+      padding-bottom: 2rem;
+    }
+    .footer-logo {
+      max-width: 100%;
+    }
+    .footer-links {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .link-group {
+      width: 100%;
+    }
+  }
+  
+
 @media (min-width: 769px) and (max-width: 1024px) {
     .features {
         justify-content: center;
     }
-    
     .feature {
         flex: 0 0 calc(50% - 2rem);
         max-width: calc(50% - 2rem);
     }
 }
 
-/* Large screen adjustments to ensure features stay in one row */
+
 @media (min-width: 1025px) {
     .features {
         flex-wrap: nowrap;
         justify-content: space-between;
     }
-    
     .feature {
         flex: 1;
         max-width: 32%;
     }
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+body, html {
+    -webkit-overflow-scrolling: touch;
 }
